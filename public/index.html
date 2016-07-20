@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Contact List</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.6/angular.min.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/1.3.3/ui-bootstrap.min.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/1.3.3/ui-bootstrap-tpls.min.js"></script>
+
+		<script type="text/javascript" src="scripts/app.js"></script>
+		<script type="text/javascript" src="scripts/ContactListCtrl.js"></script>
+		<script type="text/javascript" src="scripts/ContactCtrl.js"></script>
+
+
+	</head>
+	<body ng-app="contactList">
+		<div class="container" ng-controller="ContactListCtrl">
+			<div class="page-header">
+				<h2><a href ng-click="loadContact()">
+					<small><span class="glyphicon glyphicon-plus pull-right"></small></span></a>Contacts List</h2>
+			</div>
+			<div class="panel-body">
+
+				<table class="table table-hover">
+					<tr>
+						<th class="col-md-2">
+							<a href ng-click="setSort('firstName')">First Name<span ng-class="sortIcon('firstName')"></span></a>
+						</th>
+						<th class="col-md-2">
+							<a href ng-click="setSort('lastName')">Last Name<span ng-class="sortIcon('lastName')"></span></a>
+						</th>
+						<th class="col-md-2">
+							<a href ng-click="setSort('phone')">Phone<span ng-class="sortIcon('phone')"></span></a>
+						</th>
+						<th class="col-md-2">
+							<a href ng-click="setSort('created')">Created<span ng-class="sortIcon('created')"></span></a>
+						</th>
+						<th class="col-md-2">
+							<a href ng-click="setSort('updated')">Updated<span ng-class="sortIcon('updated')"></span></a>
+						</th>
+						<th class="col-md-2">
+							<a href ng-click="setSort('category')">Category<span ng-class="sortIcon('category')"></span></a>
+						</th>
+						<th class="col-md-1"></th>
+					</tr>
+					<tr ng-repeat="contact in contacts | orderBy:sortProp:sortReverse">
+						<td>{{contact.firstName}}</td>
+						<td>{{contact.lastName}}</td>
+						<td>{{contact.phone}}</td>
+						<td>{{contact.created | date: 'longDate'}}</td>
+						<td>{{contact.updated | date: 'longDate'}}</td>
+						<td>{{contact.category.name}}</td>
+						<td class="text-right">
+							<a href ng-click="loadContact(contact)"><span class="glyphicon glyphicon-pencil"></span></a>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</body>
+</html>

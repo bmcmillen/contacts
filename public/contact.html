@@ -1,0 +1,52 @@
+
+
+<div class="modal-header">
+    <h2 class="modal-title">Contact Details </h2>
+</div>
+
+<div class="modal-body">
+	<form name="contactForm">
+		<div class="form-group">
+			<label>First Name</label>
+			<input class="form-control" ng-model="contact.firstName" required>
+		</div>
+        <div class="form-group">
+			<label>Last Name</label>
+			<input class="form-control" ng-model="contact.lastName" required>
+		</div>
+        <div class="form-group">
+			<label>Email</label>
+			<input class="form-control" ng-model="contact.email" required>
+		</div>
+        <div class="form-group">
+			<label>Created</label>
+			<input type="date" ng-model="contact.created" readonly="true">
+		</div>
+        <div class="form-group">
+			<label>Updated</label>
+			<input type="date" ng-model="contact.updated" readonly="true">
+		</div>
+        <div class="form-group">
+			<label>Phone</label>
+			<input class="form-control" ng-model="contact.phone" required>
+		</div>
+        <div class="form-group">
+			<label>Photo</label>
+			<input class="form-control" ng-model="contact.photo" >
+		</div>
+		<div class="form-group">
+			<label>Notes</label>
+			<textarea rows=5 class="form-control" ng-model="contact.notes"></textarea>
+		</div>
+        <div class="form-group">
+            <label>Category</label>
+            <select class="form-control" ng-model="contact.category" ng-options="cat._id as cat.name for cat in categories" ></select>
+        </div>
+	</form>
+</div>
+
+<div class="modal-footer">
+    <button class="btn btn-danger pull-left" type="button" ng-click="delete()" ng-if="contact._id">Delete</button>
+    <button class="btn btn-primary" type="button" ng-click="save()" ng-disabled="!contactForm.$valid">Save</button>
+    <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+</div>
