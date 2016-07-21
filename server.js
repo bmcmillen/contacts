@@ -16,23 +16,23 @@ app.listen(8080, function() {
 var Contact = require('./models/Contact');
 var Category = require('./models/Category');
 
-function initCategories() {                            // This function first checks if data exists and adds it if it doesn't
-    return Category.count().then(function(count) {     // Count how many categories are in our database
-        if(count) return;                              // If even one exists, don't create anymore and bail out.
-
-        var categories = [                             // Define our list of categories that we want inserted
-            {name:'Family'},
-            {name:'Friends'},
-			{name:'Business'}
-        ];
-
-        categories.forEach(function(category) {      // Loop through each element
-            category = new Category(category);       // Create a document from our model
-            return category.save();                  // Save the document
-        });
-    });
-}
-initCategories();
+// function initCategories() {                            // This function first checks if data exists and adds it if it doesn't
+//     return Category.count().then(function(count) {     // Count how many categories are in our database
+//         if(count) return;                              // If even one exists, don't create anymore and bail out.
+//
+//         var categories = [                             // Define our list of categories that we want inserted
+//             {name:'Family'},
+//             {name:'Friends'},
+// 			{name:'Business'}
+//         ];
+//
+//         categories.forEach(function(category) {      // Loop through each element
+//             category = new Category(category);       // Create a document from our model
+//             return category.save();                  // Save the document
+//         });
+//     });
+// }
+// initCategories();
 
 
 app.get('/contacts', function(req,res) {

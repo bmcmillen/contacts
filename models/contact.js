@@ -6,7 +6,7 @@ module.exports = mongoose.model('Contact', {        // Create a model called Con
 	email1: String,
 	email2: String,
 	email3: String,
-	email4: String,
+	company: String,
 	phone1: String,
 	phone2: String,
 	phone3: String,
