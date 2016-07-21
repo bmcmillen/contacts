@@ -23,6 +23,7 @@ angular.module('contactList').controller('ContactListCtrl', function($scope,$htt
 		var modalInstance = $uibModal.open({
 			templateUrl: 'contact.html',
 			controller: 'ContactCtrl',
+			windowClass: 'large-Modal',
 			resolve: {
 				contactItem: function() {return contact;}
 			}
