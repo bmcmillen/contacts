@@ -5,7 +5,7 @@ angular.module('contactList').controller('ContactListCtrl', function($scope,$htt
 		});
 	}
 	getContacts();
-
+	$scope.categories = ['Family', 'Friends', 'Business'];
 	$scope.sortProp = 'firstName';
 	$scope.sortReverse = false;
 	$scope.setSort = function(prop) {
