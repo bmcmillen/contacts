@@ -18,9 +18,5 @@
     "url": "git+https://github.com/bmcmillen/contacts.git"
   },
   "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/bmcmillen/contacts/issues"
-  },
-  "homepage": "https://github.com/bmcmillen/contacts#readme"
+  "license": "ISC"
 }
