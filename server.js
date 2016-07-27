@@ -2,15 +2,16 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/contacts');		// Connect to the contacts database
+mongoose.connect('mongodb://okcoders:okcoders@okcoders.co/brian');		// Connect to the contacts database
 mongoose.Promise = Promise;								// Tell mongoose to our ES6 promises
 
 var app = express();
 app.use(bodyParser());									// bodyParser will parse POST request body into req.body
 app.use(express.static('./public'));					// Serve our static content
 
-app.listen(8080, function() {
-	console.log('Listening at http://localhost:8080');
+var port = process.env.PORT || 8080;
+app.listen(port, function() {
+	console.log('Listening at http://localhost:'+port);
 });
 
 var Contact = require('./models/Contact');
